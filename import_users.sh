@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#aws iam get-group --group-name Test --query "Users[].[UserName]" --output text
+
 aws iam list-users --query "Users[].[UserName]" --output text | while read Email; do
   User=`echo $Email | sed -e 's/@.*//g'`
   echo $User
